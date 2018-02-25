@@ -11875,14 +11875,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 
 <span class="c1"># TODO: Calculate number of features</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 
 <span class="c1"># TODO: Calculate passing students student_data.groupby(by=[&#39;passed&#39;])[&#39;passed&#39;].count()</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="o">.</span><span class="n">passed</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -11891,8 +11891,7 @@ div#notebook {
 <span class="n">n_failed</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="o">.</span><span class="n">passed</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># TODO: Calculate graduation rate</span>
-<span class="n">total</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span> <span class="o">+</span> <span class="n">n_failed</span><span class="p">)</span>
-<span class="n">grad_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">total</span><span class="p">)</span>
+<span class="n">grad_rate</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_passed</span> <span class="o">*</span><span class="mi">100</span><span class="o">/</span> <span class="p">(</span><span class="n">n_passed</span> <span class="o">+</span> <span class="n">n_failed</span><span class="p">))</span>
 
 <span class="c1"># Print the results</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
@@ -11917,10 +11916,10 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 30
+Number of features: 31
 Number of students who passed: 265
 Number of students who failed: 130
-Graduation rate of the class: 67.09%
+Graduation rate of the class: 67.00%
 </pre>
 </div>
 </div>
@@ -11942,156 +11941,7 @@ Graduation rate of the class: 67.09%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[109]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-
-<span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="s1">&#39;passed&#39;</span><span class="p">,</span> <span class="s1">&#39;failures&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">student_data</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[109]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;seaborn.axisgrid.FacetGrid at 0x1a12f6e990&gt;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[110]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature columns</span>
@@ -12176,7 +12026,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[111]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12250,7 +12100,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[112]:</div>
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import any additional functionality you may need here</span>
@@ -12263,7 +12113,7 @@ Feature values:
 <span class="n">num_test</span> <span class="o">=</span> <span class="n">X_all</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">num_train</span>
 
 <span class="c1"># TODO: Shuffle and split the dataset into the number of training and testing points above</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="n">num_test</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="n">num_test</span><span class="p">)</span>
 
 <span class="c1"># Show the results of the split</span>
 <span class="k">print</span> <span class="s2">&quot;Training set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -12335,20 +12185,11 @@ Testing set has 95 samples.
 <p><strong>Answer: </strong> Naive Bayes, SVM and Gradient Boosting.</p>
 <p>Naive Bayes examples (<a href="https://www.quora.com/In-what-real-world-applications-is-Naive-Bayes-classifier-used">https://www.quora.com/In-what-real-world-applications-is-Naive-Bayes-classifier-used</a>)
 <img src="attachment:Screen%20Shot%202018-02-25%20at%2011.50.23.png" alt="Screen%20Shot%202018-02-25%20at%2011.50.23.png"></p>
-<p>Pros - Computationally fast, Simple to implement, Works well with high dimensions, few parameters</p>
-<p>Cons - Relies on independence assumption and will perform badly if this assumption is not met</p>
 <p>SVM examples (<a href="https://data-flair.training/blogs/applications-of-svm/">https://data-flair.training/blogs/applications-of-svm/</a>)
 <img src="attachment:Screen%20Shot%202018-02-25%20at%2011.54.28.png" alt="Screen%20Shot%202018-02-25%20at%2011.54.28.png">
 In the field of computational biology, the protein remote homology detection is a common problem. The most effective method to solve this problem is using SVM. In last few years, SVM algorithms have been extensively applied for protein remote homology detection. These algorithms have been widely used for identifying among biological sequences. For example classification of genes, patients on the basis of their genes, and many other biological problems.</p>
-<p>Pros - Works well on smaller cleaner datasets, accuracy and use of kernel trick</p>
-<p>Cons - Less effective on noisier datasets with overlapping classes, Susceptible to overfitting/training issues depending on kernel
-(<a href="https://www.kdnuggets.com/2016/07/support-vector-machines-simple-explanation.html">https://www.kdnuggets.com/2016/07/support-vector-machines-simple-explanation.html</a>)</p>
-<p>Gradient Boosting <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4541863/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4541863/</a> Smart City Mobility Application—Gradient Boosting Trees for Mobility Prediction and Analysis Based on Crowdsourced Data</p>
-<p>(<a href="https://data-flair.training/blogs/gradient-boosting-algorithm/">https://data-flair.training/blogs/gradient-boosting-algorithm/</a>)
+<p>Gradient Boosting I could not find real examples (<a href="https://data-flair.training/blogs/gradient-boosting-algorithm/">https://data-flair.training/blogs/gradient-boosting-algorithm/</a>)
 it is used for regression and classification problems. That produces a prediction model in the form of an ensemble of weak prediction models.</p>
-<p>Pros - Combines simple to complex, weak learner, Can easily handle qualitative (categorical) features</p>
-<p>Cons - Unlike bagging and random forests, can overfit if number of trees is too large</p>
-<p>The three models will hadle well this classification problem, I would like to have more data to see the boosting getting better and better.</p>
 
 </div>
 </div>
@@ -12444,7 +12285,7 @@ it is used for regression and classification problems. That produces a predictio
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[113]:</div>
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import the three supervised learning models from sklearn</span>
@@ -12460,13 +12301,13 @@ it is used for regression and classification problems. That produces a predictio
 <span class="n">clf_C</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">()</span>
 
 <span class="c1"># TODO: Set up the training set sizes</span>
-<span class="c1">#X_train_100, X_test_100, y_train_100, y_test_100 = train_test_split(X_all, y_all, train_size = 100)</span>
-<span class="n">X_train_100</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
-<span class="n">y_train_100</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">X_train_100</span><span class="p">,</span> <span class="n">X_test_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">y_test_100</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">train_size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="c1"># X_train_100 = None</span>
+<span class="c1"># y_train_100 = None</span>
 
-<span class="c1">#X_train_200, X_test_200, y_train_200, y_test_200 = train_test_split(X_all, y_all, train_size = 200)</span>
-<span class="n">X_train_200</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[:</span><span class="mi">200</span><span class="p">]</span>
-<span class="n">y_train_200</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">200</span><span class="p">]</span>
+<span class="n">X_train_200</span><span class="p">,</span> <span class="n">X_test_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">y_test_200</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">train_size</span> <span class="o">=</span> <span class="mi">200</span><span class="p">)</span>
+<span class="c1"># X_train_200 = None</span>
+<span class="c1"># y_train_200 = None</span>
 
 <span class="c1"># X_train, X_test, y_train, y_test = train_test_split(X_all, y_all, test_size = num_test)</span>
 <span class="n">X_train_300</span> <span class="o">=</span> <span class="n">X_train</span>
@@ -12503,59 +12344,59 @@ it is used for regression and classification problems. That produces a predictio
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a GaussianNB using a training set size of 100. . .
-Trained model in 0.0386 seconds
-Made predictions in 0.0023 seconds.
-F1 score for training set: 0.8346.
-Made predictions in 0.0200 seconds.
-F1 score for test set: 0.7520.
+Trained model in 0.0034 seconds
+Made predictions in 0.0011 seconds.
+F1 score for training set: 0.7838.
+Made predictions in 0.0015 seconds.
+F1 score for test set: 0.7965.
 Training a GaussianNB using a training set size of 200. . .
 Trained model in 0.0029 seconds
-Made predictions in 0.0015 seconds.
-F1 score for training set: 0.7879.
-Made predictions in 0.0145 seconds.
-F1 score for test set: 0.7559.
-Training a GaussianNB using a training set size of 300. . .
-Trained model in 0.0028 seconds
 Made predictions in 0.0013 seconds.
-F1 score for training set: 0.7921.
-Made predictions in 0.0009 seconds.
-F1 score for test set: 0.6720.
-Training a SVC using a training set size of 100. . .
-Trained model in 0.0139 seconds
-Made predictions in 0.0039 seconds.
-F1 score for training set: 0.8591.
-Made predictions in 0.0041 seconds.
-F1 score for test set: 0.8439.
-Training a SVC using a training set size of 200. . .
-Trained model in 0.0075 seconds
-Made predictions in 0.0047 seconds.
-F1 score for training set: 0.8581.
-Made predictions in 0.0058 seconds.
-F1 score for test set: 0.8251.
-Training a SVC using a training set size of 300. . .
-Trained model in 0.0231 seconds
-Made predictions in 0.0101 seconds.
-F1 score for training set: 0.8584.
-Made predictions in 0.0034 seconds.
-F1 score for test set: 0.8462.
-Training a GradientBoostingClassifier using a training set size of 100. . .
-Trained model in 0.2846 seconds
-Made predictions in 0.0087 seconds.
-F1 score for training set: 1.0000.
+F1 score for training set: 0.4294.
+Made predictions in 0.0080 seconds.
+F1 score for test set: 0.4278.
+Training a GaussianNB using a training set size of 300. . .
+Trained model in 0.0042 seconds
 Made predictions in 0.0025 seconds.
-F1 score for test set: 0.8213.
-Training a GradientBoostingClassifier using a training set size of 200. . .
-Trained model in 0.1996 seconds
-Made predictions in 0.0069 seconds.
+F1 score for training set: 0.8067.
+Made predictions in 0.0013 seconds.
+F1 score for test set: 0.7385.
+Training a SVC using a training set size of 100. . .
+Trained model in 0.0040 seconds
+Made predictions in 0.0050 seconds.
+F1 score for training set: 0.8369.
+Made predictions in 0.0045 seconds.
+F1 score for test set: 0.8225.
+Training a SVC using a training set size of 200. . .
+Trained model in 0.0098 seconds
+Made predictions in 0.0086 seconds.
+F1 score for training set: 0.8984.
+Made predictions in 0.0060 seconds.
+F1 score for test set: 0.7961.
+Training a SVC using a training set size of 300. . .
+Trained model in 0.0212 seconds
+Made predictions in 0.0133 seconds.
+F1 score for training set: 0.8651.
+Made predictions in 0.0041 seconds.
+F1 score for test set: 0.7867.
+Training a GradientBoostingClassifier using a training set size of 100. . .
+Trained model in 0.2031 seconds
+Made predictions in 0.0019 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0018 seconds.
-F1 score for test set: 0.8538.
-Training a GradientBoostingClassifier using a training set size of 300. . .
-Trained model in 0.2456 seconds
 Made predictions in 0.0021 seconds.
-F1 score for training set: 0.9706.
-Made predictions in 0.0012 seconds.
-F1 score for test set: 0.8000.
+F1 score for test set: 0.7136.
+Training a GradientBoostingClassifier using a training set size of 200. . .
+Trained model in 0.1767 seconds
+Made predictions in 0.0021 seconds.
+F1 score for training set: 0.9964.
+Made predictions in 0.0019 seconds.
+F1 score for test set: 0.7660.
+Training a GradientBoostingClassifier using a training set size of 300. . .
+Trained model in 0.2195 seconds
+Made predictions in 0.0046 seconds.
+F1 score for training set: 0.9735.
+Made predictions in 0.0013 seconds.
+F1 score for test set: 0.8116.
 </pre>
 </div>
 </div>
@@ -12590,24 +12431,24 @@ F1 score for test set: 0.8000.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0386</td>
-<td style="text-align:center">0.0200</td>
-<td style="text-align:center">0.8346</td>
-<td style="text-align:center">0.7520</td>
+<td style="text-align:center">0.0034</td>
+<td style="text-align:center">0.0015</td>
+<td style="text-align:center">0.783</td>
+<td style="text-align:center">0.7965</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
 <td style="text-align:center">0.0029</td>
-<td style="text-align:center">0.0145</td>
-<td style="text-align:center">0.7879</td>
-<td style="text-align:center">0.7559</td>
+<td style="text-align:center">0.0080</td>
+<td style="text-align:center">0.4294</td>
+<td style="text-align:center">0.4278</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0028</td>
-<td style="text-align:center">0.0009</td>
-<td style="text-align:center">0.7921</td>
-<td style="text-align:center">0.6720</td>
+<td style="text-align:center">0.0042</td>
+<td style="text-align:center">0.0013</td>
+<td style="text-align:center">0.8067</td>
+<td style="text-align:center">0.7385</td>
 </tr>
 </tbody>
 </table>
@@ -12624,24 +12465,24 @@ F1 score for test set: 0.8000.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0139</td>
+<td style="text-align:center">0.0040</td>
 <td style="text-align:center">0.0045</td>
-<td style="text-align:center">0.8591</td>
+<td style="text-align:center">0.8369</td>
 <td style="text-align:center">0.8225</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
 <td style="text-align:center">0.0098</td>
-<td style="text-align:center">0.0058</td>
+<td style="text-align:center">0.0060</td>
 <td style="text-align:center">0.8984</td>
-<td style="text-align:center">0.8439</td>
+<td style="text-align:center">0.7961</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0231</td>
-<td style="text-align:center">0.0034</td>
-<td style="text-align:center">0.8584</td>
-<td style="text-align:center">0.8462</td>
+<td style="text-align:center">0.0212</td>
+<td style="text-align:center">0.0041</td>
+<td style="text-align:center">0.8651</td>
+<td style="text-align:center">0.7867</td>
 </tr>
 </tbody>
 </table>
@@ -12658,24 +12499,24 @@ F1 score for test set: 0.8000.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.2846</td>
-<td style="text-align:center">0.0025</td>
+<td style="text-align:center">0.2031</td>
+<td style="text-align:center">0.0021</td>
 <td style="text-align:center">1.0000</td>
-<td style="text-align:center">0.8213</td>
+<td style="text-align:center">0.7136</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.1996</td>
-<td style="text-align:center">0.0018</td>
-<td style="text-align:center">1.0000</td>
-<td style="text-align:center">0.8538</td>
+<td style="text-align:center">0.1767</td>
+<td style="text-align:center">0.0019</td>
+<td style="text-align:center">0.9964</td>
+<td style="text-align:center">0.7660</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.2456</td>
-<td style="text-align:center">0.0012</td>
-<td style="text-align:center">0.9706</td>
-<td style="text-align:center">0.8000</td>
+<td style="text-align:center">0.2195</td>
+<td style="text-align:center">0.0013</td>
+<td style="text-align:center">0.9735</td>
+<td style="text-align:center">0.8116</td>
 </tr>
 </tbody>
 </table>
@@ -12705,7 +12546,7 @@ F1 score for test set: 0.8000.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> SVM looks the best option, even it takes more time to predict the final result is the more consistent. The bosting gets worse at final, probably to a noisy data.</p>
+<p><strong>Answer: </strong> SVM looks the best option, it is not the fastest but got the best score with a training of 100 samples. It looks like the boosting would eventually be the best with a bigger sample.</p>
 
 </div>
 </div>
@@ -12723,10 +12564,7 @@ F1 score for test set: 0.8000.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Using SVM we will create frontier between the features we have separating them so we will classify the testing students in which side on all features they are to get a prediction if he will pass or not. 
-<img src="attachment:main-qimg-24a1132e6448564489b3174ac1e385e2.webp" alt="main-qimg-24a1132e6448564489b3174ac1e385e2.webp">
-SVM will find the maximum margin line. This is the frontier line that divides the features. It also, using kernel trick, is capable of creating an hyper-plan to separate features as in the image below.
-<img src="attachment:WuxyO.png" alt="WuxyO.png"></p>
+<p><strong>Answer: </strong> Using SVM we will create frontier between the features we have separating them so we will classify the testing students in which side on all features they are to get a prediction if he will pass or not.</p>
 
 </div>
 </div>
@@ -12756,17 +12594,14 @@ SVM will find the maximum margin line. This is the frontier line that divides th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[122]:</div>
+<div class="prompt input_prompt">In&nbsp;[105]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;GridSearchCV&#39; and &#39;make_scorer&#39;</span>
 <span class="kn">from</span> <span class="nn">sklearn.grid_search</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">fbeta_score</span><span class="p">,</span> <span class="n">make_scorer</span> 
-<span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">StratifiedShuffleSplit</span>
-
 <span class="c1"># TODO: Create the parameters list you wish to tune</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:(</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">),</span> <span class="s1">&#39;C&#39;</span><span class="p">:[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="s1">&#39;degree&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]}</span>
-<span class="n">cv</span> <span class="o">=</span> <span class="n">StratifiedShuffleSplit</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># TODO: Initialize the classifier</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">()</span>
@@ -12775,7 +12610,7 @@ SVM will find the maximum margin line. This is the frontier line that divides th
 <span class="n">f1_scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s1">&#39;yes&#39;</span><span class="p">)</span>
 
 <span class="c1"># TODO: Perform grid search on the classifier using the f1_scorer as the scoring method</span>
-<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">)</span>
+<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">)</span>
 
 <span class="c1"># TODO: Fit the grid search object to the training data and find the optimal parameters</span>
 <span class="n">grid_obj</span> <span class="o">=</span> <span class="n">grid_obj</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -12802,10 +12637,10 @@ SVM will find the maximum margin line. This is the frontier line that divides th
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Made predictions in 0.0063 seconds.
-Tuned model has a training F1 score of 0.8248.
-Made predictions in 0.0026 seconds.
-Tuned model has a testing F1 score of 0.8667.
+<pre>Made predictions in 0.0074 seconds.
+Tuned model has a training F1 score of 0.8541.
+Made predictions in 0.0027 seconds.
+Tuned model has a testing F1 score of 0.8027.
 </pre>
 </div>
 </div>
@@ -12827,133 +12662,10 @@ Tuned model has a testing F1 score of 0.8667.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> After the tunning I got the best F1_Score = 0.8667 comparing from untuned results where the boosting with 200 saples were best with F1_score = 0.8538. Tunning worked!</p>
+<p><strong>Answer: </strong> It got better result for the whole dataset, but it still lower than using just 100 testing data. For this scnario I would use the boosting model instead and re-tune for GradientBoostingClassifier.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[123]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
-
-<span class="n">pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">),</span> <span class="n">annot</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[123]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a12e9d7d0&gt;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
