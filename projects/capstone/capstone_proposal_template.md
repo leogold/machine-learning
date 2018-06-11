@@ -1,15 +1,21 @@
 # Machine Learning Engineer Nanodegree
 ## Capstone Proposal
-Joe Udacity  
-December 31st, 2050
+Leonardo Goldstein  
+June 11st, 2018
 
 ## Proposal
 _(approx. 2-3 pages)_
+Inspeção e Controle de qualidade em pontas e discos diamantados
+
+O objetivo é conseguir melhorar a classificação e separação de pontas e discos com menos recursos e maior assertividade.
+Atualmente essas pontas são classificadas visualmente com o auxilio de uma lente de aumento por um grupo de colaboradores.
 
 ### Domain Background
 _(approx. 1-2 paragraphs)_
 
 In this section, provide brief details on the background information of the domain from which the project is proposed. Historical information relevant to the project should be included. It should be clear how or why a problem in the domain can or should be solved. Related academic research should be appropriately cited in this section, including why that research is relevant. Additionally, a discussion of your personal motivation for investigating a particular problem in the domain is encouraged but not required.
+
+
 
 ### Problem Statement
 _(approx. 1 paragraph)_
