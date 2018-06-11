@@ -26,7 +26,7 @@ Atualmente essas pontas são classificadas visualmente com o auxilio de uma lent
 ### Datasets and Inputs
 _(approx. 2-3 paragraphs)_
 
-Através de produtos recolhidos, irem desenvolver um sistema para fotografar e classificar essas pontas e discos. 
+Através de produtos recolhidos, irei desenvolver um sistema para fotografar e classificar essas pontas e discos. 
 
 ### Solution Statement
 _(approx. 1 paragraph)_
