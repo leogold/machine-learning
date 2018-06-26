@@ -6,19 +6,32 @@ June 11st, 2018
 ## Proposal
 _(approx. 2-3 pages)_
 
-Desenvolver uma solução completa para medir, avaliar e classificar produtos fora dos parametros de qualidade pre-definidos.  
+Desenvolver uma solução completa para medir, avaliar e classificar produtos fora dos parametros de qualidade pre-definidos. 
+Este projeto visa solucionar especificamente através de visão computacional a classificação de pontas diamantadas.
+
+1a. Etapa - desenvolver sistema para capturar imagem das pontas. O desafio está em desenvolver um dispositivo para facilitar a tomada de imagem para posterior adequação em processo produtivo. Dentro desta etapa ainda precisamos qualificar uma camera qua consiga capturar as fotos (objeto é muito pequeno e cilindrico).
+O dispositivo precisará disponibilizar a ponta de maneira que seja facil a captura da imagem nos 360 graus do objeto.
+
+2a. Etapa - Capturar imagem das pontas. Para o projeto avaliaremos apenas 1 modelo. Cada ponta deverá ter 3 imagens a cada 120 graus. Dentre as pontas separadas com defeito, separar as imagens onde o defeito aparece e classificar as imagens como defeituosas. (Futuramente deveremos classificar as imagens por tipo de defeito - muito níquel, falta de diamante e fora de medida)
+
+3a. Etapa - Desenvolver o algoritimo baseados nos conhecimentos adquiridos em Deep Learning utilizando Redes Neurais convolucionais. 
+
+4a. Etapa - Utilizar uma rede neural robusta e adaptar ao projeto.
+
+5a. etapa - Comparar os sistemas e recomendar a melhor solução.
+
 
 ### Domain Background
 _(approx. 1-2 paragraphs)_
 
-Observando uma pessoas olhar diariamente a milhares de pontas diamantadas, me parece claro que além de insalubre a performance e eficácia podem ser melhoradas através de um sistema de recomhecimento visual através de AI.
+Observando uma pessoas olhar diariamente a milhares de pontas diamantadas, me parece claro que além de insalubre a performance e eficácia podem ser melhoradas através de um sistema de recomhecimento visual computacional utilizando Redes Neurais.
 
 
 
 ### Problem Statement
 _(approx. 1 paragraph)_
 
-Inspeção e Controle de qualidade em pontas e discos diamantados
+Inspeção e Controle de qualidade em pontas diamantadas
 
 O objetivo é conseguir melhorar a classificação e separação de pontas e discos com menos recursos e maior assertividade.
 Atualmente essas pontas são classificadas visualmente com o auxilio de uma lente de aumento por um grupo de colaboradores.
@@ -26,17 +39,16 @@ Atualmente essas pontas são classificadas visualmente com o auxilio de uma lent
 ### Datasets and Inputs
 _(approx. 2-3 paragraphs)_
 
-Através de produtos recolhidos, irei desenvolver um sistema para fotografar e classificar essas pontas e discos. 
+Através de produtos recolhidos, irei desenvolver um sistema para fotografar e classificar essas pontas. 
 
 ### Solution Statement
 _(approx. 1 paragraph)_
 
-Classificar os produtos como conformes ou não conformes. No caso de não conformes classifica-los pelo tipo de falha/problema.
+Classificar os produtos como conformes ou não conformes. No caso de não conformes classificá-los pelo tipo de falha/problema.
 
 ### Benchmark Model
-_(approximately 1-2 paragraphs)_
 
-Não sei o que colocar
+Alem de desenvolver uma rede neural convolucional especifica para o caso, irei buscar uma rede robusta para comparar resultados e concluir qual o melhor caminho a seguir.
 
 ### Evaluation Metrics
 _(approx. 1-2 paragraphs)_
