@@ -4,7 +4,6 @@ Leonardo Goldstein
 June 11st, 2018
 
 ## Proposal
-_(approx. 2-3 pages)_
 
 Desenvolver uma solução completa para medir, avaliar e classificar produtos fora dos parametros de qualidade pre-definidos. 
 Este projeto visa solucionar especificamente através de visão computacional a classificação de pontas diamantadas.
@@ -22,42 +21,43 @@ O dispositivo precisará disponibilizar a ponta de maneira que seja facil a capt
 
 
 ### Domain Background
-_(approx. 1-2 paragraphs)_
 
 Observando uma pessoas olhar diariamente a milhares de pontas diamantadas, me parece claro que além de insalubre a performance e eficácia podem ser melhoradas através de um sistema de recomhecimento visual computacional utilizando Redes Neurais.
 
 
-
 ### Problem Statement
-_(approx. 1 paragraph)_
 
 Inspeção e Controle de qualidade em pontas diamantadas
 
 O objetivo é conseguir melhorar a classificação e separação de pontas e discos com menos recursos e maior assertividade.
 Atualmente essas pontas são classificadas visualmente com o auxilio de uma lente de aumento por um grupo de colaboradores.
+![](image4.jpeg?raw=true)
+
 
 ### Datasets and Inputs
-_(approx. 2-3 paragraphs)_
 
 Através de produtos recolhidos, irei desenvolver um sistema para fotografar e classificar essas pontas. 
+![](image2.jpeg?raw=true)
+![](image1.jpeg?raw=true)
+
 
 ### Solution Statement
-_(approx. 1 paragraph)_
 
 Classificar os produtos como conformes ou não conformes. No caso de não conformes classificá-los pelo tipo de falha/problema.
+
 
 ### Benchmark Model
 
 Alem de desenvolver uma rede neural convolucional especifica para o caso, irei buscar uma rede robusta para comparar resultados e concluir qual o melhor caminho a seguir.
 
-### Evaluation Metrics
-_(approx. 1-2 paragraphs)_
 
-Não sei o que escrever
+### Evaluation Metrics
+
+A idéia é colocar em série após a classificação manual para uma reclassificação e comparar resultados.
+
 
 ### Project Design
-_(approx. 1 page)_
 
-Pretendo utilizar CNN.
+O projeto engloba desde a criação do dispositivo para fotografar, a busca do hardware para fotografar e finalmente a elaboração do sistema de reconhecimento de imagens utilizando a técnica de CNNs.
 
 -----------
